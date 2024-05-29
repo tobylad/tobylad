@@ -15,8 +15,8 @@ jobs:
   steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '14.x'
-    displayName: 'Use Node.js 14.x'
+      versionSpec: '20.x'
+    displayName: 'Use Node.js 20.x'
 
   - script: |
       npm install
