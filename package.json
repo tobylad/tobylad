@@ -1,0 +1,16 @@
+{
+  "name": "tobylad",
+  "version": "1.0.0",
+  "description": "Personal site for Toby Ladislas",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "author": "Toby Ladislas",
+  "license": "MIT",
+  "dependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
