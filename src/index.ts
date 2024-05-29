@@ -1,2 +1,7 @@
-const a: string = 'hi'
-console.log(a)
+const init = (): void => {
+  console.log('page loaded')
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  init()
+})

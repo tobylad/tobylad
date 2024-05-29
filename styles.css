@@ -22,11 +22,6 @@ nav div h1 {
     font-size: 36px;
 }
 
-.img-wrap {
-    display: grid;
-    padding: 24px;
-}
-
 .hey-message {
     display: grid;
     margin: 24px;
@@ -42,33 +37,48 @@ nav div h1 {
     margin: 16px auto;
 }
 
-img {
-    margin: auto;
-    width: 400px;
+.img-wrap {
+    display: grid;
+    height: 550px;
+    padding: 24px;
 }
 
-.cta {
+img {
+    margin: auto;
+    height: 550px;
+}
+
+figcaption {
+    color: #444;
+    font-size: 14px;
+    font-style: italic;
+    margin: auto;
+    text-align: right;
+}
+
+.cta-wrap {
     display: grid;
     margin: 24px 0;
 }
 
-.cta button {
-    margin: auto;
+.cta {
     background-color: #222;
     border-radius: 4px;
     box-shadow: 2px 2px 5px #222;
     color: #B4DA55;
-    font-size: 18px;
-    padding: 24px;
     cursor: pointer;
+    font-size: 18px;
+    margin: auto;
+    padding: 24px;
+    text-decoration: none;
 }
 
-.cta button:hover {
+.cta:hover {
     border: 2px solid #B4DA55;
 }
 
-.cta button:focus,
-.cta button:focus-visible {
+.cta:focus,
+.cta:focus-visible {
     border: 2px solid #B4DA55;
     box-shadow: 0 0 0;
     outline: 2px solid #222;
@@ -97,7 +107,8 @@ img {
         margin: 8px auto;
     }
 
-    img {
-        width: 300px;
+    img,
+    .img-wrap {
+        height: 430px;
     }
 }

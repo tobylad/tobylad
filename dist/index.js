@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("var a = 'hi';\nconsole.log(a);\n\n\n//# sourceURL=webpack://tobylad/./src/index.ts?");
+eval("var init = function () {\n    console.log('page loaded');\n};\ndocument.addEventListener('DOMContentLoaded', function () {\n    init();\n});\n\n\n//# sourceURL=webpack://tobylad/./src/index.ts?");
 
 /***/ })
 
