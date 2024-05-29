@@ -1,0 +1,56 @@
+# Node.js with webpack
+# Build a Node.js project using the webpack CLI.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: InstallDependencies
+  displayName: 'Install Dependencies'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Use Node.js 14.x'
+
+  - script: |
+      npm install
+    displayName: 'Install npm packages'
+
+- job: Build
+  displayName: 'Build Project'
+  dependsOn: InstallDependencies
+  steps:
+  - script: |
+      npm run build
+    displayName: 'Run Webpack Build'
+
+- job: Test
+  displayName: 'Run Tests'
+  dependsOn: Build
+  steps:
+  - script: |
+      npm test
+    displayName: 'Run Tests'
+
+- job: Publish
+  displayName: 'Publish Artifacts'
+  dependsOn: Test
+  steps:
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: 'dist'
+      contents: '**'
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copy Files to Artifact Staging Directory'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
+    displayName: 'Publish Build Artifacts'
