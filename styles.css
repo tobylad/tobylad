@@ -58,6 +58,7 @@ figcaption {
 
 .cta-wrap {
     display: grid;
+    height: 80px;
     margin: 24px 0;
 }
 
