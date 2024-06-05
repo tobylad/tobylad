@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Personal site for Toby Ladislas",
   "scripts": {
-    "build": "tsc && webpack"
+    "build": "webpack"
   },
   "author": "Toby Ladislas",
   "license": "MIT",
