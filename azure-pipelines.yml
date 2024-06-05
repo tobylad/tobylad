@@ -1,56 +1,52 @@
-# Node.js with webpack
-# Build a Node.js project using the webpack CLI.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
+# Trigger pipeline on push to main branch
 trigger:
 - main
 
+# Specify the pool of agents to run the pipeline
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-- job: InstallDependencies
-  displayName: 'Install Dependencies'
-  steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '20.x'
-    displayName: 'Use Node.js 20.x'
+# Define variables for easier management
+variables:
+  buildConfiguration: 'Release'
+  azureSubscription: '<Your Azure Subscription>'
+  appServiceName: '<Your App Service Name>'
+  resourceGroupName: '<Your Resource Group Name>'
+  packageDirectory: '$(Build.ArtifactStagingDirectory)/package'
 
-  - script: |
-      npm install
-    displayName: 'Install npm packages'
+# Define the steps for the pipeline
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
 
-- job: Build
+- script: |
+    npm install -g npm@latest
+    npm install
+  displayName: 'Install NPM Dependencies'
+
+- script: npm run build
   displayName: 'Build Project'
-  dependsOn: InstallDependencies
-  steps:
-  - script: |
-      npm run build
-    displayName: 'Run Webpack Build'
 
-- job: Test
-  displayName: 'Run Tests'
-  dependsOn: Build
-  steps:
-  - script: |
-      npm test
-    displayName: 'Run Tests'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  displayName: 'Archive Project Files'
 
-- job: Publish
-  displayName: 'Publish Artifacts'
-  dependsOn: Test
-  steps:
-  - task: CopyFiles@2
-    inputs:
-      sourceFolder: 'dist'
-      contents: '**'
-      targetFolder: '$(Build.ArtifactStagingDirectory)'
-    displayName: 'Copy Files to Artifact Staging Directory'
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+  displayName: 'Publish Build Artifacts'
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: 'drop'
-    displayName: 'Publish Build Artifacts'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    appName: '$(appServiceName)'
+    package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+  displayName: 'Deploy to Azure Web App'
