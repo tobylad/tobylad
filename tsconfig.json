@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",  // Use ESNext for the most modern JavaScript output
+      "lib": ["dom", "dom.iterable", "esnext"],  // Use DOM and latest ECMAScript features
+      "allowJs": true,  // Allow JavaScript files in case your project uses them
+      "skipLibCheck": true,  // Skip type checks for library files
+      "esModuleInterop": true,  // Enable better interop with CommonJS modules
+      "allowSyntheticDefaultImports": true,  // Allow default imports for modules with no default
+      "strict": true,  // Enable all strict type-checking options
+      "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in imports
+      "noFallthroughCasesInSwitch": true,  // Prevent switch case fall-throughs
+      "module": "ESNext",  // Use ESNext modules for the most modern module system
+      "moduleResolution": "node",  // Resolve modules like Node.js does
+      "isolatedModules": true,  // Ensure each file is treated as a separate module
+      "jsx": "react-jsx"  // Use the React JSX transform for JSX support
+    },
+    "include": ["src"]  // Include all source files in the 'src' directory
+  }
+  
