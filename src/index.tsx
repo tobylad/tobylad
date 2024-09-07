@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-const App: React.FC = () => <div>Hello world! I'm Toby!</div>;
-const Test: React.FC = () => <div>This is the Test component!</div>;
+const App: React.FC = () => <div>Hello world! I'm Toby! <Link to="/test">Test link!</Link></div>;
+const Test: React.FC = () => <div>This is the Test component! <Link to="/">Home link!</Link></div>;
 
 const container = document.getElementById('root');
 
