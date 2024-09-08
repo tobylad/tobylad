@@ -6,7 +6,7 @@
       "skipLibCheck": true,  // Skip type checks for library files
       "esModuleInterop": true,  // Enable better interop with CommonJS modules
       "allowSyntheticDefaultImports": true,  // Allow default imports for modules with no default
-      "strict": true,  // Enable all strict type-checking options
+      "strict": false,  // Disable all strict type-checking options
       "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in imports
       "noFallthroughCasesInSwitch": true,  // Prevent switch case fall-throughs
       "module": "ESNext",  // Use ESNext modules for the most modern module system

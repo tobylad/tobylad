@@ -1,0 +1,36 @@
+.xp-wrapper {
+    font-size: 16px;
+    margin: 48px;
+}
+
+.download-wrapper {
+    display: grid;
+    margin: 48px;
+    width: 100%;
+}
+
+.download-wrapper a {
+    display: grid;
+    margin: auto;
+    text-decoration: none;
+}
+
+.download-wrapper button {
+    display: grid;
+    background: transparent;
+    border: 2px solid #B4DA55;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600px;
+    padding: 24px;
+    margin: auto;
+}
+
+.download-wrapper button:hover,
+.download-wrapper button:focus,
+.download-wrapper button:focus-visible {
+    outline: 2px solid #B4DA55;
+    outline-offset: 4px;
+}
+
