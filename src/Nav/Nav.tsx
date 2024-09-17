@@ -27,7 +27,6 @@ export const Nav = () => {
           <div className="nav-expanded">
             <ul>
               <li key="home" className="home-link"><Link to="/" onClick={() => setNavOpen(false)}>Home</Link></li>
-              <li key="breakfast"><Link to="/breakfast" onClick={() => setNavOpen(false)}>Breakfast of Champions</Link></li>
             </ul>
           </div>
         }
