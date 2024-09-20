@@ -29,14 +29,19 @@ export const Nav = () => {
     hideNav()
 
     const handleMouseOver = () => showNav()
-    const handleScroll= () => showNav()
+    const handleScroll = () => showNav()
+    const handleTouch = () => showNav()
 
     window.addEventListener('mouseover', handleMouseOver)
     window.addEventListener('scroll', handleScroll)
+    window.addEventListener('touchstart', handleTouch)
+    window.addEventListener('touchmove', handleTouch)
 
     return (() => {
       window.removeEventListener('mouseover', handleMouseOver)
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('touchmove', handleTouch)
+      window.removeEventListener('touchstart', handleTouch)
 
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current)
