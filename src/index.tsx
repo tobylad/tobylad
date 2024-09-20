@@ -1,10 +1,9 @@
 import './styles.css'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Nav } from './Nav/Nav'
-import { Home } from './Home/Home'
+import { Home, Nav, RetroWeather } from './components'
 
-const container = document.getElementById('root');
+const container = document.getElementById('root')
 
 if (container) {
   const root = createRoot(container);
@@ -14,6 +13,7 @@ if (container) {
         <Routes>
           <Route path="/" element={<Nav />}>
             <Route index element={<Home />} />
+            <Route path="retro-weather" element={<RetroWeather />} />
           </Route>
         </Routes>
       </Router>

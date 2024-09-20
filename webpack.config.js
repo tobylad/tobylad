@@ -40,6 +40,9 @@ module.exports = {
     },
     compress: true,
     port: 9000,
-    historyApiFallback: true
+    historyApiFallback: true,
+    client: {
+      logging: 'none'
+    }
   },
 };
