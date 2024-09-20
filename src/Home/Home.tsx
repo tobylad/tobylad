@@ -5,25 +5,20 @@ export const Home: React.FC = () => {
         <>
             <div className="xp-wrapper">
                 <div>
-                    <p>Welcome to my website! Feel free to download my current resume below.</p>
-
                     <p>
-                        I am currently a Software Engineer with 5 years of professional experience. I was always into computer technology, but never attempted to learn to code until 2017.
-                        I was immediately thrilled by the complex problems that I constantly got to solve, and the new ability to create beautiful and meaningful things on the internet.
-                        My background as an English teacher gave me a heightened ability to craft stories, whether in code, documentation, or team tasks.
-                        My background as a Physical Education teacher and coach gave me deep experience in managing teams and groups of people and a great sense of empathy.
-                        What has always remained throughout both careers, however, is my ability to problem-solve. If I don't know enough about something, I'll learn it and I'll learn it fast.
-                        I am open and willing to cross-train on multiple technologies, and have done this throughout my teaching and sales careers as well, substitute teaching in many different subject areas and making sales in multiple departments.
-                        My affinity to rapidly learn, adapt to any situation, along with 5 years of pro experience and one career already completed, makes me a valuable asset to any team.
+                        Hey there! I'm Toby, an experienced software engineer from Atlanta! I specialize in building high-quality, feature-rich applications using modern frameworks and tools with a strong focus on efficiency. I have a proven ability to deliver robust solutions quickly while maintaining high standards of code quality and user experience.
                     </p>
 
                     <p>
-                        Personally, I'm the same tech/game/music nerd I always was. Lately as many others, I have fully immersed myself in this 'next chapter' of AI evolution. 
-                        Chat GPT-4, DALL-E, and Copilot. I'm a video gamer, and I'm currently playing Starfield! I also attempt to play several instruments and love a good loud rock concert!
+                        As part of a software development team, I am known as a thorough, highly detail-oriented problem solver a creative out-of-the-box thinker with no fear of failing fast.
                     </p>
 
                     <p>
-                        Thanks for stopping by my experience page. If you have any questions or would like to reach out to me regarding software engineering roles, check out my resume for contact info!
+                    As a frontend engineer I see through all parts of the product lifecycle of a frontend web app, including but not limited to: Diagramming, architecting, assisting in accessibility (A11y) design, coding, pair programming, code reviews, code deployment, monitoring, analytics, and data-driven decision making.
+                    </p>
+
+                    <p>
+                    I am highly driven by the challenges software engineers face every day, and constantly striving to make all of it better. Thanks for stopping by my experience page. If you have any questions or would like to reach out to me regarding software engineering roles, check out my resume for contact info!
                     </p>
 
                 </div>
