@@ -1,0 +1,24 @@
+.card {
+    background: linear-gradient(
+        to bottom,
+        #8fa7d6 12.5%,   /* Lighter periwinkle */
+        #8fa7d6 14%,     /* Slight blur transition */
+        #667cc1 14%, #667cc1 25%,   /* Muted blue-purple */
+        #4E4DBF 25%, #4E4DBF 37.5%,   /* Light purple-blue */
+        #3a3baf 37.5%, #3a3baf 50%,   /* Softer dark blue */
+        #0201A4 50%, #0201A4 100%   /* Solid blue from halfway down */
+    );
+    background-clip: border-box; /* Ensure background covers border */
+    filter: blur(1px);  /* Slight blur to soften transitions */
+    border: 4px solid #FFF;
+    margin: 40px 24px;
+    outline: 2px solid #000;
+    max-width: 40vw;
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        margin: 8px 24px;
+        max-width: 320px;
+    }
+}

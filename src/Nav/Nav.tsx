@@ -55,7 +55,7 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className={`${navOpen ? 'nav-open' : ''} ${!navVisible ? 'nav-hidden' : ''} poo`}>
+      <nav className={`${navOpen ? 'nav-open' : ''} ${!navVisible ? 'nav-hidden' : ''}`}>
         <div className="headline">
           <div>Toby Ladislas</div>
           <div>

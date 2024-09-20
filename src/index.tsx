@@ -13,6 +13,7 @@ if (container) {
         <Routes>
           <Route path="/" element={<Nav />}>
             <Route index element={<Home />} />
+            {/* PROJECTS - Showcase your past public work and blog about the non-public stuff */}
             <Route path="retro-weather" element={<RetroWeather />} />
           </Route>
         </Routes>
