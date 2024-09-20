@@ -1,10 +1,48 @@
 import './nav.css'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FaHamburger } from 'react-icons/fa'
 import { Outlet, Link } from 'react-router-dom';
 
 export const Nav = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false)
+  const [navVisible, setNavVisible] = useState<boolean>(true)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+
+  const hideNav = () => {
+    timeoutRef.current = setTimeout(() => {
+      setNavVisible(false)
+    }, 3000)
+  }
+
+  const showNav = () => {
+    setNavVisible(true)
+    
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+
+    hideNav()
+  }
+
+  useEffect(() => {
+    hideNav()
+
+    const handleMouseOver = () => showNav()
+    const handleScroll= () => showNav()
+
+    window.addEventListener('mouseover', handleMouseOver)
+    window.addEventListener('scroll', handleScroll)
+
+    return (() => {
+      window.removeEventListener('mouseover', handleMouseOver)
+      window.removeEventListener('scroll', handleScroll)
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    })
+  }, [])
 
   const toggleNav = (): void => {
     setNavOpen(!navOpen)
@@ -12,7 +50,7 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className={navOpen ? 'nav-open' : ''}>
+      <nav className={`${navOpen ? 'nav-open' : ''} ${!navVisible ? 'nav-hidden' : ''} poo`}>
         <div className="headline">
           <div>Toby Ladislas</div>
           <div>

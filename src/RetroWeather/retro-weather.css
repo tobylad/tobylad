@@ -1,0 +1,19 @@
+.retro-wrapper {
+    background-color: #0201A4;
+    color: #FFF;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px #000;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.retro-info-header {
+    background-color: #FF7518;
+    min-height: 64px;
+    width: 100%;
+}

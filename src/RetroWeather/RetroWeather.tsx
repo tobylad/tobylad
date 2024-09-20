@@ -2,6 +2,11 @@ import './retro-weather.css'
 
 export const RetroWeather: React.FC = () => {
     return (
-        <div>Welcome to Retro Weather!</div>
+        <div className="retro-wrapper">
+            <div className="retro-info-header">
+                I'm the retro info header.
+            </div>
+            Hey. What's up.
+        </div>
     )
 }
