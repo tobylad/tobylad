@@ -1,6 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const dotenv = require('dotenv')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+dotenv.config()
 
 module.exports = {
   mode: 'development',
@@ -11,6 +15,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
+    fallback: {
+      "path": false,
+      "os": false,
+      "crypto": false
+    }
   },
   module: {
     rules: [
@@ -33,6 +42,9 @@ module.exports = {
       filename: '[name].css',  // Output CSS file name
       chunkFilename: '[id].css',
     }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env)
+    })
   ],
   devServer: {
     static: {

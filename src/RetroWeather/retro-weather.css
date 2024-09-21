@@ -38,6 +38,10 @@
     font-size: 36px;
 }
 
+.weather-location {
+    cursor: pointer;
+}
+
 .retro-header-weather-stats span.weather-page-type {
     color: #FFEB00;
 }

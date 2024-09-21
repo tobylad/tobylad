@@ -2,6 +2,7 @@ import './retro-weather.css'
 import { useState, useEffect } from 'react'
 import { RetroWeatherCard } from './RetroWeatherCard/RetroWeatherCard'
 import { getFutureDayString } from '../utils'
+import openWeather from '../api/openWeather'
 
 interface RetroWeatherDateTime {
   time: string;
@@ -112,6 +113,12 @@ export const RetroWeather: React.FC = () => {
     }
   ]
 
+  const getWeather = async () => {
+    console.log('getting some weather now')
+    const data = await openWeather.getWeatherForecastByUsZip('30316')
+    console.log(data)
+  }
+
   return (
     <div className="retro-wrapper">
       <div className="retro-header">
@@ -121,7 +128,7 @@ export const RetroWeather: React.FC = () => {
         </div>
 
         <div className="retro-header-weather-stats">
-            <div>{ city }</div>
+            <div className="weather-location" onClick={() => getWeather()}><span>{ city }</span></div>
             <div><span className="weather-page-type">{ weatherPageType }</span></div>
         </div>
 
