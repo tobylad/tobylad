@@ -4,7 +4,7 @@ class OpenWeather {
   private apiKey = process.env.OPEN_WEATHER_API_KEY
 
   public getWeatherForecastByUsZip = async (zip: string) => {
-    const geoApiUrl = `http://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${this.apiKey}`
+    const geoApiUrl = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${this.apiKey}`
 
     try {
       // Get geographical data from user input
