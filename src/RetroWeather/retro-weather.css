@@ -25,7 +25,7 @@
     ;
     border-bottom: 2px solid #0201A4;
     box-shadow: 4px 4px 4px #4E4DBF;
-    height: 96px;
+    height: 12vh;
     width: 100%;
 } 
 
@@ -72,14 +72,14 @@
             #FF7518 100%
         )
     ;
-    height: 100vh;
+    height: 88vh;
     width: 100%;
     margin-top: 8px;
 }
 
 @media only screen and (max-width: 480px) {
     .retro-header {
-        grid-template-columns: 2fr 6fr 4fr;
+        grid-template-columns: 2fr 8fr 6fr;
         background: linear-gradient(
             -45deg,
             #0201A4 20%,

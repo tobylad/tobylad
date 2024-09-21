@@ -12,7 +12,7 @@ export const Nav = () => {
   const hideNav = () => {
     timeoutRef.current = setTimeout(() => {
       setNavVisible(false)
-    }, 3000)
+    }, 2000)
   }
 
   const showNav = () => {

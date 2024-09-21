@@ -1,0 +1,90 @@
+.card {
+    display: grid;
+    grid-template-rows: 2fr 6fr 4fr 4fr;
+    background: linear-gradient(
+        to bottom,
+        #8fa7d6 12.5%,   /* Lighter periwinkle */
+        #8fa7d6 14%,     /* Slight blur transition */
+        #667cc1 14%, #667cc1 25%,   /* Muted blue-purple */
+        #4E4DBF 25%, #4E4DBF 37.5%,   /* Light purple-blue */
+        #3a3baf 37.5%, #3a3baf 50%,   /* Softer dark blue */
+        #0201A4 50%, #0201A4 100%   /* Solid blue from halfway down */
+    );
+    background-clip: border-box; /* Ensure background covers border */
+    filter: blur(1px);  /* Slight blur to soften transitions */
+    border: 4px solid #FFF;
+    margin: 40px 24px;
+    outline: 2px solid #000;
+    max-width: 40vw;
+}
+
+.card-day {
+    font-family: "VT323", system-ui;
+    font-style: normal;
+    font-size: 64px;
+    font-weight: 400;
+    margin: auto;
+    text-shadow: 4px 4px 2px #000;
+    text-transform: uppercase;
+}
+
+.card-graphic {
+    display: grid;
+}
+
+.card-graphic .graphic-wrapper {
+    margin: auto;
+}
+
+/* TODO: Programmatically set these after MVP */
+.glowing-sun {
+    animation: glow 1.5s infinite alternate; /* Animation keyframe */
+  }
+  
+  @keyframes glow {
+    0% {
+      filter: drop-shadow(0 0 10px #FF7518)
+              drop-shadow(0 0 20px #FF7518)
+              drop-shadow(0 0 30px #FF7518);
+    }
+    100% {
+      filter: drop-shadow(0 0 10px #FFEB00)
+              drop-shadow(0 0 20px #FFEB00)
+              drop-shadow(0 0 30px #FFEB00);
+    }
+  }
+
+.card-forecast {
+    font-family: "Oxanium", system-ui;
+    font-optical-sizing: auto;
+    font-size: 32px;
+    font-style: normal;
+    margin: auto;
+}
+
+.card-temps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-temps div {
+    display: grid;
+    font-size: 36px;
+    margin: 0 auto;
+}
+
+.card-temps .temp-label {
+    align-items: end;
+}
+
+.card-temps .temp {
+    align-items: start;
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        margin: 8px 24px;
+        max-width: 320px;
+    }
+}
