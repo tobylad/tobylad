@@ -1,14 +1,6 @@
 import './retro-weather-card.css'
 import { WiDaySunny } from 'weather-icons-react';
 
-interface RetroWeatherCardProps {
-  day: string;
-  graphic: string;
-  forecast: string;
-  low: string;
-  high: string;
-}
-
 export const RetroWeatherCard: React.FC<RetroWeatherCardProps> = ({ day, graphic, forecast, low, high }) => {
   return (
     <div className="card">

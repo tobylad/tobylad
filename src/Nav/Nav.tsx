@@ -16,7 +16,11 @@ export const Nav = () => {
   }
 
   const showNav = () => {
-    setNavVisible(true)
+    if (window.location.pathname === '/') {
+      setNavVisible(true)
+    } else {
+      return
+    }
     
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)

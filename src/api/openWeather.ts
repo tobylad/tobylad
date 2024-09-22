@@ -1,27 +1,36 @@
 class OpenWeather {
   constructor() {}
 
+  public zip = ''
   private apiKey = process.env.OPEN_WEATHER_API_KEY
 
-  public getWeatherForecastByUsZip = async (zip: string) => {
-    const geoApiUrl = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${this.apiKey}`
+  public getCoordinatesFromZip = async (zip: string): Promise<any> => {
+    this.zip = zip
+    console.log(this.zip)
+    const apiUrl = `https://api.openweathermap.org/geo/1.0/zip?zip=${this.zip},US&appid=${this.apiKey}`
 
     try {
-      // Get geographical data from user input
-      const geoResponse = await fetch(geoApiUrl)
+      const res = await fetch(apiUrl)
+      if (!res.ok) throw new Error(`Error: ${res.status}`)
+      const data = await res.json()
+      return data
 
-      if (!geoResponse.ok) throw new Error(`Error: ${geoResponse.status}`)
+    } catch (error: any) {
+      console.error('Error fetching coordinates data:', error);
+    }
+  }
 
-      const geoData = await geoResponse.json()
+  public getThreeDayWeatherForecast = async (lat: number, lon: number) => {
+    try {
+      const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${this.apiKey}&units=imperial`
+      const res = await fetch(apiUrl)
 
-      // Use resulting data to fetch weather with lat and lon
-      const forecastApiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${geoData.lat}&lon=${geoData.lon}&exclude=current,minutely,hourly,alerts&appid=${this.apiKey}`
-      const forecastResponse = await fetch(forecastApiUrl)
+      if (!res.ok) throw new Error(`Error: ${res.status}`)
 
-      if (!forecastResponse.ok) throw new Error(`Error: ${forecastResponse.status}`)
+      const forecastData = await res.json()
 
-      const forecastData = await forecastResponse.json()
-      return forecastData
+      // Return the next three days
+      return forecastData.daily.slice(1, 4)
 
     } catch (error: any) {
       console.error('Error fetching weather data:', error);
