@@ -43,7 +43,8 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env)
+      'process.env': JSON.stringify(process.env),
+      'process.env.OPEN_WEATHER_API_KEY': JSON.stringify(process.env.OPEN_WEATHER_API_KEY)
     })
   ],
   devServer: {
