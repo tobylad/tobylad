@@ -54,8 +54,6 @@ export const RetroWeather: React.FC = () => {
   const setThreeDayForecast = async () => {
     const forecastData = await openWeather.getThreeDayWeatherForecast(mapCoords.lat, mapCoords.lon)
 
-    console.log(forecastData)
-
     // SET CARDS HERE WITH FORECAST DATA
     const updatedWeatherCards = forecastData?.map((dailyData) => {
       return {

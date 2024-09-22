@@ -6,7 +6,6 @@ class OpenWeather {
 
   public getCoordinatesFromZip = async (zip: string): Promise<any> => {
     this.zip = zip
-    console.log(this.zip)
     const apiUrl = `https://api.openweathermap.org/geo/1.0/zip?zip=${this.zip},US&appid=${this.apiKey}`
 
     try {
