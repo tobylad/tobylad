@@ -8,7 +8,6 @@ class OpenWeather {
 
   public init = async (): Promise<void> => {
     const keys = await this.fetchKeys()
-    console.log(keys)
     this.altApiKey = keys.OPEN_WEATHER_API_KEY
   }
   
