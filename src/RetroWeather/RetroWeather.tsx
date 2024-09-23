@@ -14,7 +14,6 @@ export const RetroWeather: React.FC = () => {
   // Runs once
   useEffect(() => {
     const configureLocation = async () => {
-      await openWeather.init()
       const geoData = await openWeather.getCoordinatesFromZip('30316') // DEFAULT TO DEKALB COUNTY
 
       const lat = geoData.lat
