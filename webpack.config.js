@@ -1,14 +1,15 @@
 const webpack = require('webpack')
 const path = require('path')
-// const dotenv = require('dotenv')
 const dotenv = require('@dotenvx/dotenvx')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 dotenv.config()
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
-  mode: 'development',
+  mode: isProd ? 'production' : 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -44,8 +45,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-      'process.env.OPEN_WEATHER_API_KEY': JSON.stringify(process.env.OPEN_WEATHER_API_KEY)
+      'process.env': JSON.stringify(process.env)
     })
   ],
   devServer: {
