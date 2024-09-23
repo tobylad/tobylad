@@ -1,7 +1,5 @@
 class OpenWeather {
-  constructor (){
-    console.log(process.env, 'PROCESS ENV IS IT WORKING')
-  }
+  constructor (){}
 
 
   public zip = ''
