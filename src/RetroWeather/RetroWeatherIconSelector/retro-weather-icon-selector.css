@@ -1,0 +1,104 @@
+.rain {
+    animation: glowing-rain 1.5s infinite linear;
+}
+
+.drizzle {
+    animation: glowing-rain 1.5s infinite linear;
+}
+
+@keyframes glowing-rain {
+    0% {
+        filter: drop-shadow(0 0 10px #4E4DBF)
+                drop-shadow(0 0 20px #4E4DBF)
+                drop-shadow(0 0 30px #4E4DBF);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #3333ff)
+                drop-shadow(0 0 20px #3333ff)
+                drop-shadow(0 0 30px #3333ff);
+    }
+}
+
+.sunny {
+    animation: glowing-sun 1.5s infinite alternate; /* Animation keyframe */
+}
+  
+@keyframes glowing-sun {
+    0% {
+        filter: drop-shadow(0 0 10px #FF7518)
+                drop-shadow(0 0 20px #FF7518)
+                drop-shadow(0 0 30px #FF7518);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #FFEB00)
+                drop-shadow(0 0 20px #FFEB00)
+                drop-shadow(0 0 30px #FFEB00);
+    }
+}
+
+.clouds {
+    animation: glowing-snow 1.5s infinite alternate; /* Animation keyframe */
+}
+  
+@keyframes glowing-clouds {
+    0% {
+        filter: drop-shadow(0 0 10px #0201A4)
+                drop-shadow(0 0 20px #0201A4)
+                drop-shadow(0 0 30px #0201A4);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #a6ceed)
+                drop-shadow(0 0 20px #a6ceed)
+                drop-shadow(0 0 30px #a6ceed);
+    }
+}
+
+.storm {
+    animation: glowing-storm 1.5s infinite alternate; /* Animation keyframe */
+}
+  
+@keyframes glowing-storm {
+    0% {
+        filter: drop-shadow(0 0 10px #ffd979)
+                drop-shadow(0 0 20px #ffd979)
+                drop-shadow(0 0 30px #ffd979);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px transparent);
+    }
+}
+
+.snow {
+    animation: glowing-clouds 1.5s infinite alternate;
+}
+  
+@keyframes glowing-snow {
+    0% {
+        filter: drop-shadow(0 0 10px #95ccff)
+                drop-shadow(0 0 20px #95ccff)
+                drop-shadow(0 0 30px #95ccff);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #60b8fb)
+                drop-shadow(0 0 20px #60b8fb)
+                drop-shadow(0 0 30px #60b8fb);
+    }
+}
+
+
+.warning {
+    animation: glowing-warning 1.5s infinite alternate;
+}
+  
+@keyframes glowing-warning {
+    0% {
+        filter: drop-shadow(0 0 10px transparent)
+                drop-shadow(0 0 20px transparent)
+                drop-shadow(0 0 30px transparent);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #F00)
+                drop-shadow(0 0 20px #F00)
+                drop-shadow(0 0 30px #F00);
+    }
+}

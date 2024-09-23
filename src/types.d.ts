@@ -9,9 +9,13 @@ interface MapCoordinates {
 }
 
 interface RetroWeatherCardProps {
-  day: string;
-  graphic: string;
-  forecast: string;
-  low: string;
-  high: string;
+  day: string
+  weatherId: number
+  forecast: string
+  low: string
+  high: string
+}
+
+interface RetroWeatherIconSelector {
+  weatherId: number
 }

@@ -57,7 +57,7 @@ export const RetroWeather: React.FC = () => {
     const updatedWeatherCards = forecastData?.map((dailyData) => {
       return {
         day: formatDate(new Date(dailyData.dt * 1000)).slice(0, 3),
-        graphicClassName: '', // TODO: Map graphic CSS class name based on api res - dailyData.weather[0].id -- MAP based on FIRST DIGIT
+        weatherId: dailyData.weather[0].id,
         forecast: dailyData.weather[0].main,
         low: Math.round(dailyData.temp.min),
         high: Math.round(dailyData.temp.max)
@@ -76,7 +76,7 @@ export const RetroWeather: React.FC = () => {
         </div>
 
         <div className="retro-header-weather-stats">
-            <div className="weather-location" onClick={() => console.log('Biscuits')}><span>{ location }</span></div>
+            <div className="weather-location"><span>{ location }</span></div>
             <div><span className="weather-page-type">{ weatherPageType }</span></div>
         </div>
 
@@ -92,7 +92,7 @@ export const RetroWeather: React.FC = () => {
           <RetroWeatherCard 
             key={`card-${i}`}
             day={card.day}
-            graphic={card.graphic} 
+            weatherId={card.weatherId}
             forecast={card.forecast} 
             low={card.low} 
             high={card.high} 

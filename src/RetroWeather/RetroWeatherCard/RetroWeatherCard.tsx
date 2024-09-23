@@ -1,14 +1,13 @@
 import './retro-weather-card.css'
-import { WiDaySunny } from 'weather-icons-react';
+import { RetroWeatherIconSelector } from '../RetroWeatherIconSelector/RetroWeatherIconSelector'
 
-export const RetroWeatherCard: React.FC<RetroWeatherCardProps> = ({ day, graphic, forecast, low, high }) => {
+export const RetroWeatherCard: React.FC<RetroWeatherCardProps> = ({ day, weatherId, forecast, low, high }) => {
   return (
     <div className="card">
       <div className="card-day">{day}</div>
       <div className="card-graphic">
         <div className="graphic-wrapper">
-          {/* TODO: Map out potential icons based on weather API */}
-          <WiDaySunny className="glowing-sun" size={160} color='#FF7518' />
+          <RetroWeatherIconSelector weatherId={weatherId} />
         </div>
       </div>
       <div className="card-forecast">{forecast}</div>

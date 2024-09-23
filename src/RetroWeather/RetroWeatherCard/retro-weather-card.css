@@ -15,7 +15,7 @@
     border: 4px solid #FFF;
     margin: 40px 24px;
     outline: 2px solid #000;
-    max-width: 40vw;
+    max-width: 400px;
 }
 
 .card-day {
@@ -39,20 +39,20 @@
 /* TODO: Programmatically set these after MVP */
 .glowing-sun {
     animation: glow 1.5s infinite alternate; /* Animation keyframe */
-  }
+}
   
-  @keyframes glow {
+@keyframes glow {
     0% {
-      filter: drop-shadow(0 0 10px #FF7518)
-              drop-shadow(0 0 20px #FF7518)
-              drop-shadow(0 0 30px #FF7518);
+        filter: drop-shadow(0 0 10px #FF7518)
+                drop-shadow(0 0 20px #FF7518)
+                drop-shadow(0 0 30px #FF7518);
     }
     100% {
-      filter: drop-shadow(0 0 10px #FFEB00)
-              drop-shadow(0 0 20px #FFEB00)
-              drop-shadow(0 0 30px #FFEB00);
+        filter: drop-shadow(0 0 10px #FFEB00)
+                drop-shadow(0 0 20px #FFEB00)
+                drop-shadow(0 0 30px #FFEB00);
     }
-  }
+}
 
 .card-forecast {
     font-family: "Oxanium", system-ui;
