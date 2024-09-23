@@ -1,8 +1,8 @@
+require('@dotenvx/dotenvx').config()
+
 const express = require('express')
 const path = require('path')
-const dotenv = require('@dotenvx/dotenvx')
 
-dotenv.config()
 
 const app = express()
 const port = process.env.PORT || 3000
