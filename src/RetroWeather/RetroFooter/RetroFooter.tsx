@@ -1,9 +1,6 @@
 import './retro-footer.css'
 
 export const RetroFooter = ({ tickerMessages }) => {
-
-  console.log(tickerMessages)
-
   return (
     <div className="retro-footer">
       <div className="ticker">
