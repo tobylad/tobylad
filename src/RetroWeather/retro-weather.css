@@ -76,11 +76,12 @@
             #FF7518 100%
         )
     ;
-    height: 88vh;
+    height: 76vh;
     width: 100%;
     margin-top: 8px;
 }
 
+/* Mobile */
 @media only screen and (max-width: 480px) {
     .retro-header {
         grid-template-columns: 2fr 8fr 6fr;
@@ -111,5 +112,6 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-gap: 8px;
+        height: 3000px;
     }
 }

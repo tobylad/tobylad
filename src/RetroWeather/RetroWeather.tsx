@@ -1,6 +1,7 @@
 import './retro-weather.css'
 import { useState, useEffect } from 'react'
 import { RetroWeatherCard } from './RetroWeatherCard/RetroWeatherCard'
+import { RetroFooter } from './RetroFooter/RetroFooter'
 import { formatDateTime, formatDate } from '../utils'
 import openWeather from '../api/openWeather'
 
@@ -10,6 +11,8 @@ export const RetroWeather: React.FC = () => {
   const [weatherPageType, setWeatherPageType] = useState<string>('')
   const [currentDateTime, setCurrentDateTime] = useState<CurrentDateTime>({ time: '', date: '' })
   const [weatherCards, setWeatherCards] = useState<RetroWeatherCardProps[]>([])
+
+  const [tickerMessages, setTickerMessages] = useState<string[]>([])
 
   // Runs once
   useEffect(() => {
@@ -24,6 +27,11 @@ export const RetroWeather: React.FC = () => {
     
     configureLocation()
     setWeatherPageType('Extended Forecast')
+    setTickerMessages([
+      'Welcome to Retro Weather App! Click the location at the top of the screen to pick a new location by zip!',
+      'The extended forecast will show general weather information about the following 3 days. The clock shows the time based on the current time zone based the chosen location.',
+      'Based off the 90s Weather Channel forecasts.'
+    ])
 
     // Update current time and date on UI every one second
     const intervalId = setInterval(() => {
@@ -99,6 +107,8 @@ export const RetroWeather: React.FC = () => {
           />
         ))}
       </div>
+
+        <RetroFooter tickerMessages={ tickerMessages } />
     </div>
   )
 }
