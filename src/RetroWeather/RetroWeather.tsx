@@ -11,8 +11,7 @@ export const RetroWeather: React.FC = () => {
   const [weatherPageType, setWeatherPageType] = useState<string>('')
   const [currentDateTime, setCurrentDateTime] = useState<CurrentDateTime>({ time: '', date: '' })
   const [weatherCards, setWeatherCards] = useState<RetroWeatherCardProps[]>([])
-
-  const [tickerMessages, setTickerMessages] = useState<string[]>([])
+  const [tickerMessages, setTickerMessages] = useState([])
 
   // Runs once
   useEffect(() => {
@@ -28,9 +27,7 @@ export const RetroWeather: React.FC = () => {
     configureLocation()
     setWeatherPageType('Extended Forecast')
     setTickerMessages([
-      'Welcome to Retro Weather App! Click the location at the top of the screen to pick a new location by zip!',
-      'The extended forecast will show general weather information about the following 3 days. The clock shows the time based on the current time zone based the chosen location.',
-      'Based off the 90s Weather Channel forecasts.'
+      'Welcome to Retro Weather App! Click the magnifying glass to choose a location by US zipcode.'
     ])
 
     // Update current time and date on UI every one second
@@ -47,22 +44,28 @@ export const RetroWeather: React.FC = () => {
 
   // Runs when mapCoords are changed
   useEffect(() => {
-    const setForecast = async () => {
-      await setThreeDayForecast()
+    const setForecastData = async () => {
+      await setForecast()
     }
 
     if (Object.values(mapCoords).includes(null)) {
       return
     }
 
-    setForecast()
+    setForecastData()
   }, [mapCoords])
 
-  const setThreeDayForecast = async () => {
-    const forecastData = await openWeather.getThreeDayWeatherForecast(mapCoords.lat, mapCoords.lon)
+  const setForecast = async () => {
+    const forecastData = await openWeather.getFourDayWeatherForecast(mapCoords.lat, mapCoords.lon)
+
+    const todaysForecast = forecastData[0]
+    const nextThreeDaysForecast = forecastData.slice(1, 4)
+    
+    // ADD TODAY'S FORECAST SUMMARY TO TICKER
+    setTickerMessages([...tickerMessages, `TODAY: ${todaysForecast.summary}`])
 
     // SET CARDS HERE WITH FORECAST DATA
-    const updatedWeatherCards = forecastData?.map((dailyData) => {
+    const updatedWeatherCards = nextThreeDaysForecast?.map((dailyData) => {
       return {
         day: formatDate(new Date(dailyData.dt * 1000)).slice(0, 3),
         weatherId: dailyData.weather[0].id,

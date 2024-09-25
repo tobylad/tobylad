@@ -20,7 +20,7 @@ class OpenWeather {
     }
   }
   
-  public getThreeDayWeatherForecast = async (lat: number, lon: number) => {
+  public getFourDayWeatherForecast = async (lat: number, lon: number) => {
     try {
       const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${this.apiKey}&units=imperial`
       const res = await fetch(apiUrl)
@@ -28,9 +28,9 @@ class OpenWeather {
       if (!res.ok) throw new Error(`Error: ${res.status}`)
         
         const forecastData = await res.json()
-        
-        // Return the next three days
-        return forecastData.daily.slice(1, 4)
+
+        // Return the next four days
+        return forecastData.daily.slice(0, 4)
         
       } catch (error: any) {
         console.error('Error fetching weather data:', error);
