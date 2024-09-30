@@ -19,3 +19,12 @@ interface RetroWeatherCardProps {
 interface RetroWeatherIconSelector {
   weatherId: number
 }
+
+interface RetroModalContent {
+  id: string;
+  message: string;
+  maxLength?: number;
+  buttonText: string;
+  // buttonAction: () => void;
+  // inputAction: (e: any) => void;
+}

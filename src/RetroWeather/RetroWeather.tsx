@@ -1,30 +1,34 @@
 import './retro-weather.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { RetroWeatherCard } from './RetroWeatherCard/RetroWeatherCard'
 import { RetroFooter } from './RetroFooter/RetroFooter'
 import { formatDateTime, formatDate } from '../utils'
 import openWeather from '../api/openWeather'
+import { FaSearch } from "react-icons/fa";
 
 export const RetroWeather: React.FC = () => {
   const [location, setLocation] = useState<string>('')
+  const [userZip, setUserZip] = useState<string>('')
   const [mapCoords, setMapCoords] = useState<MapCoordinates>({ lat: null, lon: null })
   const [weatherPageType, setWeatherPageType] = useState<string>('')
   const [currentDateTime, setCurrentDateTime] = useState<CurrentDateTime>({ time: '', date: '' })
   const [weatherCards, setWeatherCards] = useState<RetroWeatherCardProps[]>([])
-  const [tickerMessages, setTickerMessages] = useState([])
+  const [tickerMessages, setTickerMessages] = useState<string[]>([])
+  const [zipModalOpen, setZipModalOpen] = useState<boolean>(false)
+  const zipInput = useRef(null)
+
+  const configureLocation = async (zip: string) => {
+    const geoData = await openWeather.getCoordinatesFromZip(zip)
+
+    const lat = geoData.lat
+    const lon = geoData.lon
+    setLocation(geoData.name)
+    setMapCoords({ lat, lon })
+  }
 
   // Runs once
   useEffect(() => {
-    const configureLocation = async () => {
-      const geoData = await openWeather.getCoordinatesFromZip('30316') // DEFAULT TO DEKALB COUNTY
-
-      const lat = geoData.lat
-      const lon = geoData.lon
-      setLocation(geoData.name)
-      setMapCoords({ lat, lon })
-    }
-    
-    configureLocation()
+    configureLocation('30316') // DEFAULT TO DEKALB COUNTY
     setWeatherPageType('Extended Forecast')
     setTickerMessages([
       'Welcome to Retro Weather App! Click the magnifying glass to choose a location by US zipcode.'
@@ -55,6 +59,12 @@ export const RetroWeather: React.FC = () => {
     setForecastData()
   }, [mapCoords])
 
+  // Runs when zipModalOpen state changes
+  useEffect(() => {
+    if (!zipModalOpen) return
+    zipInput.current.focus()
+  }, [zipModalOpen])
+
   const setForecast = async () => {
     const forecastData = await openWeather.getFourDayWeatherForecast(mapCoords.lat, mapCoords.lon)
 
@@ -62,7 +72,7 @@ export const RetroWeather: React.FC = () => {
     const nextThreeDaysForecast = forecastData.slice(1, 4)
     
     // ADD TODAY'S FORECAST SUMMARY TO TICKER
-    setTickerMessages([...tickerMessages, `TODAY: ${todaysForecast.summary}`])
+    setTickerMessages([...tickerMessages, `Today in ${location}: ${todaysForecast.summary}`])
 
     // SET CARDS HERE WITH FORECAST DATA
     const updatedWeatherCards = nextThreeDaysForecast?.map((dailyData) => {
@@ -78,40 +88,71 @@ export const RetroWeather: React.FC = () => {
     setWeatherCards(updatedWeatherCards)
   }
 
+  const openZipCodeModal = () => {
+    setZipModalOpen(true)
+  }
+
+  const searchByZip = () => {
+    if (userZip.length < 5) return
+
+
+    configureLocation(userZip) // TODO: Error handling
+    setZipModalOpen(false)
+  }
+
+  const handleZipInput = (event: any) => {
+    setUserZip(event.target.value)
+  }
+
   return (
-    <div className="retro-wrapper">
-      <div className="retro-header">
-        
-        <div className="retro-header-logo">
-          <img src="https://tobyladimages.blob.core.windows.net/images/retro-weather-header-logo.webp" alt="logo" />
+    <>
+      <div className={`retro-wrapper ${ zipModalOpen ? 'retro-wrapper-overlay' : '' }`}>
+        <div className="retro-header">
+          
+          <div className="retro-header-logo">
+            <img src="https://tobyladimages.blob.core.windows.net/images/retro-weather-header-logo.webp" alt="logo" />
+          </div>
+
+          <div className="retro-header-weather-stats">
+              <div className="weather-location">
+                <span>{ location }</span>
+                <button className="search-by-zip" onClick={() => openZipCodeModal()}>
+                  <FaSearch />
+                </button>
+              </div>
+              <div><span className="weather-page-type">{ weatherPageType }</span></div>
+          </div>
+
+          <div className="retro-header-datetime">
+            <div className="retro-header-time">{currentDateTime.time}</div>
+            <div className="retro-header-date">{currentDateTime.date}</div>
+          </div>
+
         </div>
 
-        <div className="retro-header-weather-stats">
-            <div className="weather-location"><span>{ location }</span></div>
-            <div><span className="weather-page-type">{ weatherPageType }</span></div>
+        <div className="retro-body">
+          { weatherCards && weatherCards.map((card, i) => (
+            <RetroWeatherCard 
+              key={`card-${i}`}
+              day={card.day}
+              weatherId={card.weatherId}
+              forecast={card.forecast} 
+              low={card.low} 
+              high={card.high} 
+            />
+          ))}
         </div>
-
-        <div className="retro-header-datetime">
-          <div className="retro-header-time">{currentDateTime.time}</div>
-          <div className="retro-header-date">{currentDateTime.date}</div>
-        </div>
-
-      </div>
-
-      <div className="retro-body">
-        { weatherCards && weatherCards.map((card, i) => (
-          <RetroWeatherCard 
-            key={`card-${i}`}
-            day={card.day}
-            weatherId={card.weatherId}
-            forecast={card.forecast} 
-            low={card.low} 
-            high={card.high} 
-          />
-        ))}
-      </div>
 
         <RetroFooter tickerMessages={ tickerMessages } />
-    </div>
+      </div>
+
+      { zipModalOpen && 
+        <div className="retro-modal">
+          <div className="retro-modal-message">Enter a 5-digit US zipcode.</div>
+          <input ref={zipInput} onChange={(e) => handleZipInput(e)} className="retro-modal-input" id="zipModal" type="tel" maxLength={5} />
+          <button className="retro-modal-submit" onClick={() => searchByZip()}>Get { weatherPageType }</button>
+        </div>
+      }
+    </>
   )
 }

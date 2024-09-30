@@ -1,3 +1,7 @@
+.hide {
+    display: none;
+}
+
 .retro-wrapper {
     background-color: #010162;
     color: #FFF;
@@ -11,6 +15,11 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
+}
+
+.retro-wrapper-overlay {
+    filter: brightness(25%);
+    pointer-events: none;
 }
 
 .retro-header {
@@ -39,7 +48,22 @@
 }
 
 .weather-location {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
     cursor: pointer;
+}
+
+.weather-location span {
+    align-self: start;
+}
+
+.weather-location button.search-by-zip {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 24px;
+    margin: auto;
 }
 
 .retro-header-weather-stats span.weather-page-type {
@@ -79,6 +103,63 @@
     height: 76vh;
     width: 100%;
     margin-top: 8px;
+}
+
+.retro-modal {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-family: "VT323", system-ui;
+    font-style: normal;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:
+        linear-gradient(
+            to bottom,
+            #0201A4 35%,
+            #705b4e 100%
+        )
+    ;
+    padding: 8px;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+    text-align: center;
+    /* width: 320px; */
+    height: 240px;
+    /* order: 2; */
+    z-index: 2;
+}
+
+.retro-modal-message {
+    margin: auto;
+}
+
+.retro-modal-input {
+    background: transparent;
+    border: 2px solid #FFF;
+    caret-color: #FF7518;
+    color: #FF7518;
+    margin: auto;
+    font-family: "Orbitron", sans-serif;
+    font-size: 32px;
+    padding: 16px;
+    text-align: center;
+}
+
+.retro-modal-submit {
+    background-color: #010162;
+    color: #FFEB00;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 16px;
+    margin: auto;
+    padding: 16px;
+    text-align: center;
 }
 
 /* Mobile */
