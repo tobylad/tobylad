@@ -66,3 +66,10 @@
     text-transform: uppercase;
     padding: 0 2rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+    .retro-footer {
+        position: sticky;
+    }
+}
