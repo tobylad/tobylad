@@ -2,12 +2,15 @@ nav {
     display: grid;
     grid-auto-flow: row;
     background-color: #B4DA55;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 50px;
     width: 100%;
 }
 
-nav.nav-open {
-    margin-bottom: 120px;
+nav div {
+    font-weight: 700;
 }
 
 nav.nav-hidden {
@@ -27,7 +30,7 @@ nav .headline {
 
 nav .headline div {
     display: grid;
-    margin: 15px auto;
+    margin: 16px auto;
 }
 
 nav .nav-button {
@@ -38,9 +41,11 @@ nav .nav-button {
 
 .nav-expanded {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    background: #FFF;
+    border: 1px solid #B4DA55;
     grid-auto-flow: row;
-    padding: 12px 0 0;
+    padding: 12px;
+    z-index: 99;
 }
 
 .nav-expanded ul {

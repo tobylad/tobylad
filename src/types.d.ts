@@ -25,6 +25,18 @@ interface RetroModalContent {
   message: string;
   maxLength?: number;
   buttonText: string;
-  // buttonAction: () => void;
-  // inputAction: (e: any) => void;
+}
+
+interface PortfolioDetails {
+  title: string
+  url: string;
+  xpMessage: string;
+  projectList: PortfolioProjectDetailsList[];
+}
+
+interface PortfolioDetailsProjectList {
+  title: string;
+  description: string;
+  link: string;
+  imageUrl: string;
 }

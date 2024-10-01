@@ -12,7 +12,8 @@
       "module": "ESNext",  // Use ESNext modules for the most modern module system
       "moduleResolution": "node",  // Resolve modules like Node.js does
       "isolatedModules": true,  // Ensure each file is treated as a separate module
-      "jsx": "react-jsx"  // Use the React JSX transform for JSX support
+      "jsx": "react-jsx",  // Use the React JSX transform for JSX support
+      "resolveJsonModule": true
     },
     "include": ["src"]  // Include all source files in the 'src' directory
   }

@@ -1,0 +1,29 @@
+{
+    "cricket": {
+      "title": "Cricket Wireless",
+      "url": "https://cricketwireless.com",
+      "xpMessage": "As a senior software engineer at Cricket Wireless, I developed many new skills over the course of my 2 1/2 years of employment there. I became an expert in managing CI/CD pipelines in Azure DevOps, got comfortable with Node, learned JAMstack, and worked on my favorite project of all: Microtransactions! Click each image to be taken to a live production version!",
+      "projectList": [
+        {
+            "title": "Mobile Hotspot",
+            "description": "Extracted a service once buried in another application, helping to re-create it as a smaller application with one-click access and a blazing fast user experience. Besides working on the frontend code for this project, which was built with TypeScript, REST API's, 11ty, Node, and CSS Grid, I also launched and maintained CI/CD and set up the production codebase with advanced analytics using GA4 and bug monitoring via Bugsnag.",
+            "link": "https://www.cricketwireless.com/smslogin/mobilehotspot",
+            "imageUrl": "https://tobyladimages.blob.core.windows.net/images/cricket-mobile-hotspot.png"
+        }
+      ]
+    },
+    "pareto": {
+      "title": "Pareto Solutions Group",
+      "url": "https://paretosg.com/",
+      "xpMessage": "As a UI Engineer for Pareto Solutions Group, I worked on React and Angular user interfaces, built custom CSS solutions and honed my Agile/Scrum skills. My sole client at PSG was none other than Cricket Wireless, who eventually brought me on full-time.",
+      "projectList": [
+        {
+          "title": "Activate",
+          "description": "Improved the activate experience for end users. This consisted of an entirely new React application using React hooks and REST API's. At the time, this particular application was built with custom CSS; it has since undergone improvements to implement a shared design system. This is something I worked on as a full-time employee of Cricket, after my time here.",
+          "link": "https://www.cricketwireless.com/activate.html",
+          "imageUrl": "https://tobyladimages.blob.core.windows.net/images/cricket-activate.png"
+        }
+      ]
+    }
+  }
+  

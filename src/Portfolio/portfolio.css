@@ -1,0 +1,116 @@
+.portfolio-header {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    background-color: #B4DA55;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.portfolio-header div {
+    margin: auto;
+}
+
+.portfolio-name {
+    grid-column: 1 / 2;
+}
+
+.portfolio-title {
+    grid-column: 3 / 4;
+}
+
+.portfolio-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+    margin: 80px 40px;
+}
+
+.xp-cell {
+    display: grid;
+    grid-template-rows: 6fr 2fr;
+    color: #000;
+    width: 320px;
+    height: 320px;
+}
+
+.xp-cell p {
+    font-size: 24px;
+    font-weight: 500px;
+    margin: auto;
+}
+
+.cricket-logo {
+    background: url('https://tobyladimages.blob.core.windows.net/images/cricket_logo.jpg') no-repeat center;
+    cursor: pointer;
+}
+
+.pareto-logo {
+    background: url('https://tobyladimages.blob.core.windows.net/images/pareto_logo.png') no-repeat center;
+    cursor: pointer;
+}
+
+.insiten-logo {
+    background: url('https://tobyladimages.blob.core.windows.net/images/insiten_logo.png') no-repeat center;
+    cursor: pointer;    
+}
+
+.capgemini-logo {
+    background: url('https://tobyladimages.blob.core.windows.net/images/cap-logo.png') no-repeat center;
+    cursor: pointer;
+}
+
+.portfolio-details {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin: 80px 40px;
+}
+
+.details-back {
+    background: transparent;
+    border: none;
+    color: #B4DA55;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px;
+    width: 160px;
+}
+
+.portfolio-project-list {
+    margin: 24px 40px;
+}
+
+.portfolio-project-list-entry {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid #B4DA55;
+    margin: 24px 0;
+}
+
+.entry-overview {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+@media only screen and (max-width: 480px) {
+    .portfolio-body {
+        grid-template-columns: none;
+        grid-auto-flow: row;
+    }
+
+    .portfolio-details {
+        margin: 80px 8px;
+    }
+
+    .portfolio-project-list-entry {
+        grid-template-columns: none;
+        grid-auto-flow: row;
+        border-bottom: 2px solid #B4DA55;
+        margin: 16px 0;
+    }
+}
