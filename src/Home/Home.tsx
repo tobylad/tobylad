@@ -10,7 +10,7 @@ export const Home: React.FC = () => {
                     </p>
 
                     <p>
-                        As part of a software development team, I am known as a thorough, highly detail-oriented problem solver a creative out-of-the-box thinker with no fear of failing fast.
+                        As part of a software development team, I am known as a thorough, highly detail-oriented problem solver and a creative out-of-the-box thinker with no fear of failing fast.
                     </p>
 
                     <p>
