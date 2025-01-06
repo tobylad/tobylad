@@ -1,7 +1,7 @@
 import './nav.css'
 import { useState, useEffect, useRef } from 'react'
 import { FaHamburger } from 'react-icons/fa'
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom'
 
 export const Nav = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false)
@@ -16,7 +16,7 @@ export const Nav = () => {
   }
 
   const showNav = () => {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === '/' || window.location.pathname === '/blog') {
       setNavVisible(true)
     } else {
       return
@@ -75,6 +75,7 @@ export const Nav = () => {
             <ul>
               <li key="home" className="home-link"><Link to="/" onClick={() => setNavOpen(false)}>Home</Link></li>
               <li key="portfolio"><Link to="/portfolio" onClick={() => setNavOpen(false)}>Portfolio</Link></li>
+              <li key="blog"><Link to="/blog" onClick={() => setNavOpen(false)}>Blog</Link></li>
               <li key="retro-weather"><Link to="/retro-weather" onClick={() => setNavOpen(false)}>Retro Weather</Link></li>
             </ul>
           </div>
