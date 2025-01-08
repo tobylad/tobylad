@@ -17,7 +17,7 @@ export const Blog: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="blog-articles">
+                <div>
                     <h2>January 6, 2025 2:13 a.m.</h2>
 
                     <p>

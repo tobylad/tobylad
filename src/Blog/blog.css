@@ -2,6 +2,8 @@
     margin: 64px;
 }
 
-.blog-articles {
-    margin: 40px;
+@media (max-width: 600px) {
+    .blog-wrapper {
+        margin: 32px;
+    }
 }
