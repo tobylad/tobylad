@@ -4,6 +4,6 @@
 
 @media (max-width: 600px) {
     .blog-wrapper {
-        margin: 32px;
+        margin: 64px 32px;
     }
 }
