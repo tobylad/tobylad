@@ -76,7 +76,7 @@ export const Nav = () => {
               <li key="home" className="home-link"><Link to="/" onClick={() => setNavOpen(false)}>Home</Link></li>
               <li key="portfolio"><Link to="/portfolio" onClick={() => setNavOpen(false)}>Portfolio</Link></li>
               <li key="blog"><Link to="/blog" onClick={() => setNavOpen(false)}>Blog</Link></li>
-              <li key="retro-weather"><Link to="/retro-weather" onClick={() => setNavOpen(false)}>Retro Weather</Link></li>
+              <li key="side-projects"><Link to="/side-projects" onClick={() => setNavOpen(false)}>Side Projects</Link></li>
             </ul>
           </div>
         }

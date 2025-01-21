@@ -1,0 +1,53 @@
+.side-projects .side-projects-header {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    background-color: #B4DA55;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.side-projects-header div {
+    margin: auto;
+}
+
+
+.side-projects-name {
+    grid-column: 1 / 2;
+}
+
+.side-projects-title {
+    grid-column: 3 / 4;
+}
+
+.side-projects-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+    margin: 80px 40px;
+}
+
+.side-projects-body .project-cell {
+    display: grid;
+    grid-template-rows: 6fr 2fr;
+    color: #000;
+    width: 320px;
+    height: 320px;
+}
+
+.project-cell p {
+    font-size: 24px;
+    font-weight: 500px;
+    margin: auto;
+}
+
+@media only screen and (max-width: 480px) {
+    .side-projects-body {
+        grid-template-columns: none;
+        grid-auto-flow: row;
+        margin: 40px 20px;
+    }
+}
