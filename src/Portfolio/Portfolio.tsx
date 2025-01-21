@@ -41,28 +41,28 @@ export const Portfolio: React.FC = () => {
 
     return (
         <>
-            <div className="portfolio-header">
-                <div className="portfolio-name">Toby Ladislas</div>
-                <div className="portfolio-title">Portfolio</div>
+            <div className="site-header">
+                <div className="site-header-name">Toby Ladislas</div>
+                <div className="site-header-title">Portfolio</div>
             </div>
 
-            <div className={detailsOpen ? 'hide' : 'portfolio-body'}>
-                <div className="xp-cell">
+            <div className={`site-body ${detailsOpen ? 'hide' : 'portfolio-body'}`}>
+                <div className="site-cell">
                     <div className="cricket-logo" onClick={() => openDetails('cricket')}></div>
                     <p>Cricket Wireless</p>
                 </div>
 
-                <div className="xp-cell">
+                <div className="site-cell">
                     <div className="pareto-logo" onClick={() => openDetails('pareto')}></div>
                     <p>Pareto Solutions Group</p>
                 </div>
 
-                <div className="xp-cell">
+                <div className="site-cell">
                     <div className="insiten-logo"></div>
                     <p>Insiten</p>
                 </div>
 
-                <div className="xp-cell">
+                <div className="site-cell">
                     <div className="capgemini-logo"></div>
                     <p>Capgemini</p>
                 </div>

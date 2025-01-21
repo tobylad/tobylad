@@ -1,46 +1,6 @@
-.portfolio-header {
-    display: grid;
-    grid-template-columns: 3fr 1fr 3fr;
-    background-color: #B4DA55;
-    font-weight: 700;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 50px;
-    width: 100%;
-}
-
-.portfolio-header div {
-    margin: auto;
-}
-
-.portfolio-name {
-    grid-column: 1 / 2;
-}
-
-.portfolio-title {
-    grid-column: 3 / 4;
-}
-
 .portfolio-body {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
-    margin: 80px 40px;
-}
-
-.xp-cell {
-    display: grid;
-    grid-template-rows: 6fr 2fr;
-    color: #000;
-    width: 320px;
-    height: 320px;
-}
-
-.xp-cell p {
-    font-size: 24px;
-    font-weight: 500px;
-    margin: auto;
 }
 
 .cricket-logo {

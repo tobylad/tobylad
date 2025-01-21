@@ -4,7 +4,11 @@ import './blog.css';
 export const Blog: React.FC = () => {
     return (
         <>
-            <div className="blog-wrapper">
+            <div className="site-header">
+                <div className="site-header-name">Toby Ladislas</div>
+                <div className="site-header-title">Side Projects</div>
+            </div>
+            <div className="site-body">
                 <div>
                     <h1>Welcome to My Blog!</h1>
                     <p>

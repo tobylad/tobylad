@@ -3,7 +3,7 @@ import './home.css'
 export const Home: React.FC = () => {
     return (
         <>
-            <div className="xp-wrapper">
+            <div className="site-body">
                 <div>
                     <p>
                         Hey there! I'm Toby, an experienced software engineer from Atlanta! I specialize in building high-quality, feature-rich applications using modern frameworks and tools with a strong focus on efficiency. I have a proven ability to deliver robust solutions quickly while maintaining high standards of code quality and user experience.
