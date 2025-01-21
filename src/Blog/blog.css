@@ -1,9 +1,0 @@
-.blog-wrapper {
-    margin: 64px;
-}
-
-@media (max-width: 600px) {
-    .blog-wrapper {
-        margin: 64px 32px;
-    }
-}

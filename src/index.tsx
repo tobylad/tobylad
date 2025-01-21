@@ -7,7 +7,8 @@ import {
   Nav, 
   RetroWeather, 
   Blog,
-  SideProjects
+  SideProjects,
+  ToyStoryGpt
 } from './components'
 
 const container = document.getElementById('root')
@@ -24,6 +25,7 @@ if (container) {
             <Route path="retro-weather" element={<RetroWeather />} />
             <Route path="blog" element={<Blog />} />
             <Route path="side-projects" element={<SideProjects />} />
+            <Route path="ask-toy-story" element={<ToyStoryGpt />}> </Route>
           </Route>
         </Routes>
       </Router>

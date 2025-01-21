@@ -1,0 +1,13 @@
+.toy-gpt-container {
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    align-items: center;
+}
+
+.toy-gpt-text {
+    grid-column: 1;
+}
+
+.toy-gpt-button {
+    grid-column: 2;
+}
