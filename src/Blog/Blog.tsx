@@ -6,7 +6,7 @@ export const Blog: React.FC = () => {
         <>
             <div className="site-header">
                 <div className="site-header-name">Toby Ladislas</div>
-                <div className="site-header-title">Side Projects</div>
+                <div className="site-header-title">Blog</div>
             </div>
             <div className="site-body">
                 <div>
